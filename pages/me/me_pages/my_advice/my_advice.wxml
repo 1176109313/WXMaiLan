@@ -1,0 +1,13 @@
+<!--pages/me/me_pages/my_advice/my_advice.wxml-->
+<view>
+  <view class="input_tip">输入您宝贵的建议：</view>
+  <view class="cont">
+    <textarea class="inputs_css" 
+    placeholder="我们将不断改进..."
+    bindinput="inputadvice"
+    maxlength="150">
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    </textarea>
+  </view>
+  <button class="new_bt" bindtap="commit">提交</button>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/me/me.wxml-->
+<view>
+  <import src="../template/template" />
+  <view>
+    <template is="listview_me" data="{{array}}"></template>
+  </view>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button>
+</view>

@@ -1,0 +1,49 @@
+/* pages/me/me_pages/my_address/my_address.wxss */
+.A{
+  height: 100%;
+  width: 100%;
+}
+.delete_bt{
+  margin-top: 5%;
+  background-color: #3e96ef;
+  color: white;
+  border-radius: 20rpx;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+}
+.D{
+  width: 30%;
+  margin-left: 60%;
+}
+.new_bt{
+  width: 70%;
+  margin-top: 8%;
+  background-color: #3e96ef;
+  color: white;
+  border-radius: 20rpx;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+}
+.input_tip {
+  margin-top: .77em;
+  margin-bottom: .3em;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #3f3e3e;
+  font-size: 14px;
+}
+.cont{
+  display: flex;
+  flex-direction: column;
+  width: 92%;
+  height: 25%;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px #cccccc inset;
+  border-color: #cccccc;
+  border-radius: 3%;
+}

@@ -1,0 +1,69 @@
+/* pages/me/me_pages/my_order/my_order.wxss */
+.A{
+  background-color: #f6f5f5;
+}
+.B{
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color: white;
+  border-width: 1rpx;
+  box-shadow: 0 0 0 1px #cccccc inset;
+  border-color: #cccccc;
+  border-radius: 20rpx;
+  padding: 6%;
+  display: flex;
+  flex-direction: column;
+}
+.C{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.D{
+  flex-wrap: wrap;
+  font-size: 35rpx;
+}
+.E{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.F{
+  font-size: 26rpx;
+  color: #cccccc;
+}
+.G{
+  margin-top: 25rpx;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+.line{
+  width: 100%;
+  margin-top: 2%;
+  background-color: #cccccc;
+  height: 3rpx;
+  transform: scaleY(0.5);
+}
+.small_pic{
+  margin-left: 2rpx;
+  height: 36rpx;
+  width: 36rpx;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.AA{
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: center;  
+
+}
+.small_picA{
+  height: 69rpx;
+  width: 36rpx;
+}
+

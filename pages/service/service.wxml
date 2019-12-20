@@ -1,0 +1,17 @@
+<!--pages/serivce/service.wxml-->
+<view class="flex-wrp" style="flex-direction:row;">
+  <import src="../template/template" />
+  <view  style="width:30%">
+    <view wx:for='{{service}}' wx:for-index="index" wx:for-item="item" style='{{key==index?"color:blue;":""}} z-index:999;' data-index='{{index}}' bindtap="intent" data-text="{{item.name}}">
+      <view class="lv_text">{{item.name}}</view>
+      <view class="C"></view>
+    </view>
+  </view>
+
+  <view style="width:70%">
+    <view>
+      <template is="listview_service2" data="{{service2}}"></template>
+    </view>
+  </view>
+
+</view>

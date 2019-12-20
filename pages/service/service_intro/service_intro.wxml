@@ -1,0 +1,13 @@
+<!--pages/service/service_intro/service_intro.wxml-->
+<view class="A">
+  <Parser html="{{html}}" bindparser="parser" />
+</view>
+<view class="B">
+</view>
+<view class="C">
+  <view class="F"></view>
+  <view class="D" bindtap="appoint">
+    <text class="E">立即预约</text>
+  </view>
+</view>
+

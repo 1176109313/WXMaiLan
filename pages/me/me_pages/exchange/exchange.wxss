@@ -1,0 +1,71 @@
+/* pages/me/me_pages/exchange/exchange.wxss */
+.A{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.AA{
+ font-size: 35rpx;
+ text-overflow:ellipsis;
+ z-index: -1;
+ display: -webkit-box;
+ word-break: break-all;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: 3;
+ overflow: hidden;
+
+}
+.B{
+  background: #cccccc27;
+  display: flex;
+  flex-direction: column;
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 2%;
+  height: 100%;
+}
+.C{
+  height: 100%;
+  width: 100%;
+}
+.D{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column
+}
+.cont{
+  width: 46%;
+  height: 40%;
+  margin: 5px;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px #cccccc inset;
+  border-color: #cccccc;
+  display: inline-block;
+}
+.small_pic{
+  margin: 5rpx;
+  height: 200rpx;
+  width: 97%;
+}
+.tellinput {
+  margin-top: 50rpx;
+  border: 1px solid #efeff4;
+}
+
+.tellsection input {
+  color: #000;
+  width: 100%;
+}
+.t_a{
+  margin: 2%;
+  width: 96%;
+  height: 450rpx;
+}

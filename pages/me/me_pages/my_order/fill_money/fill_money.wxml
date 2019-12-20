@@ -1,0 +1,15 @@
+<!--pages/me/me_pages/my_order/fill_money/fill_money.wxml-->
+<view class="A">
+  <view>订单名称：{{order.name}}</view>
+  <view>订单状态：{{order.state}}</view>
+  <view>订单时间：{{order.state}}</view>
+  <view>地址：{{order.state}}</view>
+  <view>师傅电话：{{order.state}}</view>
+  <view>订单金额：{{order.state}}</view>
+  <view wx:if="{{order.ID=='日常保洁'}}">
+    <view>开始时间：{{order.state}}</view>
+    <view>结束时间：{{order.state}}</view>
+    <view>时长：{{order.state}}</view>
+  </view>
+  <button class="new_bt" bindtap="fill_money">补款</button>
+</view>

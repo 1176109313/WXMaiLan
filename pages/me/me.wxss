@@ -1,0 +1,22 @@
+/* pages/me/me.wxss */
+.item{
+    display: flex;
+    flex-direction: row;
+    margin-left: 14px;
+    margin-bottom:10px; 
+    margin-top:10px;
+}
+.cutoff_rule{
+  height: 1px;
+  background-color: #cccccc;
+  opacity: 0.2;
+}
+.lv_me_text{
+  margin-left: 12px;
+  order: 2;
+}
+.more{
+  order: 3;
+  position: fixed;
+  right: 20px
+}

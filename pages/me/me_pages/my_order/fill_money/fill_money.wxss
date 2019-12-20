@@ -1,0 +1,15 @@
+/* pages/me/me_pages/my_order/fill_money/fill_money.wxss */
+.A{
+  margin: 4%;
+  height: 92%;
+}
+.new_bt{
+  width: 70%;
+  margin-top: 8%;
+  background-color: #3e96ef;
+  color: white;
+  border-radius: 20rpx;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+}

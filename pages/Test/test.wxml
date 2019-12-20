@@ -1,0 +1,15 @@
+<!--pages/Test/test.wxml-->
+
+<import src="../../../template/template" />
+<template is="score" data="{{...addtell}}" />
+
+
+<view class="A">
+  <view  wx:for='{{score}}' wx:for-item="item" style='{{"item==1||item==2"?"color:blue;":"color:red"}}' data-index='{{index}}' bindtap="log">
+    <image wx:if="{{item==1}}" src="../static/img/s1.png" class="small_pic" ></image>
+    <image wx:if="{{item==2}}" src="../static/img/s2.png" class="small_pic" ></image>
+    <image wx:if="{{item==3}}" src="../static/img/s3.png" class="small_pic" ></image>
+    <image wx:if="{{item==4}}" src="../static/img/s4.png" class="small_pic" ></image>
+  </view>
+</view>
+<view>{{grade}}</view>

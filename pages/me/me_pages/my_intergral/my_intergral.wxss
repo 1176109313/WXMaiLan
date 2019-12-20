@@ -1,0 +1,46 @@
+/* pages/me/me_pages/my_intergral/my_intergral.wxss */
+Q{
+   display: flex;
+   background: #3e96ef;
+}
+.A{
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.C{
+  display: flex;
+  flex-direction: row
+}
+
+.D{
+  display: flex;
+  flex-direction: column
+}
+.cont{
+  width: 100rpx;
+  height: 150rpx;
+  
+  margin: 5px;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px #cccccc inset;
+  border-color: #cccccc;
+  display: inline-block;
+}
+.new_bt{
+  width: 70%;
+  margin-top: 8%;
+  background-color: #3e96ef;
+  color: white;
+  border-radius: 20rpx;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+}
+.small_pic{
+  margin-left: 30rpx;
+  height: 40rpx;
+  width: 40rpx;
+}

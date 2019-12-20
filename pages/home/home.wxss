@@ -1,0 +1,99 @@
+/* pages/home/home.wxss */
+.adver_p{
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 2%;
+}
+.gray{
+  margin-top: 10px;
+  height: 7px;
+  background-color: #cccccc;
+  opacity: 0.2;
+}
+.service{
+  margin-top: 2%;
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+.button::after{
+  border-width:0;
+  }
+.new_bt{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  background-color: #fafafa;
+  color: rgb(54, 54, 54);
+  border-radius: 20rpx;
+  font-size: 16px;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+}
+.bt_p{
+  width: 70rpx;
+  height: 70rpx;
+}
+.ho{
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+.cont{
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  height: 400rpx;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px #cccccc inset;
+  border-color: #cccccc;
+  border-radius: 3%;
+}
+.A{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  flex-direction: row;
+}
+.B{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  margin-left: 20rpx;
+  flex-direction: row;
+}
+.C{
+  margin-top: 3%;
+  margin-left: 4%;
+}
+.magintop{
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+.small_p{
+  margin-left: 7%;
+  margin-top: 10rpx;
+  margin-right: 7%;
+  width: 125rpx;
+}
+.bc_green {background: green;width:100px; height: 100px;}
+.v_line{
+  height: 100%;
+  width: 3rpx;
+  background: #cccccc;
+}
+.h_line{
+  width: 100%;
+  height: 3rpx;
+  background: #cccccc;
+}
+.main {
+  margin-left: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 50%;
+  height: 100%;
+}

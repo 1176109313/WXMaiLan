@@ -1,0 +1,36 @@
+<!--pages/me/me_pages/my_order/my_order.wxml-->
+<view class="A">
+  <view>
+  <import src="../../../template/template" />
+  <template is="score" data="{{...addtell}}" />
+</view>
+  <view wx:for='{{order}}' wx:for-index="index" wx:for-item="item" bindtap="detail">
+    <view class="B">
+      <view class="C">
+        <view class="D">{{item.name}}</view>
+        <view class="D">{{item.number}}</view>
+        <view class="D" style="color:{{item.color}}">{{item.state}}</view>
+      </view>
+      <view class="E">
+        <view class="F">服务时间：9.8号上午11:00{{item.time}}</view>
+        <view class="F">服务地址：济南市南市市中区中山路23号{{item.address}}</view>
+        <view wx:if="{{item.state!='待接单'}}" class="row">
+          <image hidden='{{item.sex=="男" ? false:true}}' src="../../../static/img/man.png" class="small_pic"></image>
+          <image hidden='{{item.sex=="女" ? false:true}}'src="../../../static/img/woman.png" class="small_pic"></image>
+          <view class="row F">{{item.name}}王师傅：{{item.phonenumber}}</view>
+          <image src="../../../static/img/call.png" class="small_pic" catchtap='call'  data-phonenumber="{{item.phonenumber}}"></image>
+        </view>
+      </view>
+
+      <view class="G">
+        <view wx:if="{{item.state=='待接单'}}" class="D" style="color:#cccccc" catchtap="revocation_order">取消订单</view>
+        <view wx:if="{{item.state=='进行中'}}" class="D" style="color:#cccccc" catchtap="gomap">查看师傅位置</view>
+        <view wx:if="{{item.state=='已完成'}}" class="D" style="color:#cccccc" catchtap="review">评 分</view>
+        <view wx:if="{{item.state=='待补款'}}" class="D" style="color:#cccccc" catchtap="detail">补 款</view>
+        <view class="D" style="color:#3e96ef">140元</view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>
+

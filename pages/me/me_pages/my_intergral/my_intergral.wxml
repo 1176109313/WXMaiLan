@@ -1,0 +1,14 @@
+<!--pages/me/me_pages/my_intergral/my_intergral.wxml-->
+<view>
+<text >过去一周签到情况</text>
+<view class="Q">
+  <view  wx:for='{{day}}' wx:for-item="item" class="cont" style='{{item.s==0?"color:gray;":""}} z-index:999;'>
+    <view class="D">
+      <text class="A" >{{item.day}}</text>
+      <image wx:if="{{item.s==1}}"src="../../../static/img/signin.png" class="small_pic"></image>
+    </view>
+  </view>
+  <button class="new_bt" bindtap="signin">点击签到</button>
+  <button class="new_bt" bindtap="intent">积分兑换</button>
+</view>
+</view>

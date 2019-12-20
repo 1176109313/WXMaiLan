@@ -1,0 +1,10 @@
+<!--pages/up_order/choose_address/choose_address.wxml-->
+<view class="A">
+  <view wx:for='{{address}}' wx:for-index="index" wx:for-item="item" class="cont">
+    <view class="input_tip">
+      <view >详细地址：{{item.address}}</view>
+    </view>
+    <button class='delete_bt' style="width:30%;margin-left:66%;margin-bottom:4%" bindtap="choose_address" data-id="{{item._id}}" data-text="{{item.address}}">选择</button>
+  </view>
+  <button class="new_bt" bindtap="add_address">新增</button>
+</view>

@@ -1,0 +1,74 @@
+<template name="listview_me">
+  <block wx:for="{{array}}" wx:key="key">
+    <view class="item" bindtap="intent" data-text="{{item.text}}" >
+      <image src="{{item.img}}" style="width:25px;height:25px;"></image>
+      <view class="lv_me_text">{{item.text}}</view>
+      <view class="more">
+        <image src="../static/more.png" style="width:22px;height:22px;"></image>
+      </view>
+    </view>
+    <view class="cutoff_rule"></view>
+  </block>
+</template>
+
+<template name="listview_service1">
+  <view wx:for='{{item_service1}}' wx:for-index="index" wx:for-item="item" style='{{key==index?"color:red;":""}} z-index:999;' data-index='{{index}}' bindtap="intent" data-text="{{item.text}}">
+      <view class="lv_text">{{item.text}}</view>
+  </view>
+</template>
+
+<template name="listview_service2">
+  <block wx:for="{{service2}}" wx:key="key">
+    <view class="item" bindtap="intent2" data-text="{{item.ID}}">
+      <view class="service2">
+        <text class="A">{{item.ID}}</text>
+        <text class="B">{{item.intro}}</text>
+      </view>
+    </view>
+    <view class="C"></view>
+  </block>
+</template>
+
+<template name="point">
+  <view>
+    <modal title="物品信息" confirm-text="兑换" cancel-text="取消" hidden="{{pointHidden}}" bindconfirm="modalConfirm1" bindcancel="modalCancel">
+      <label>
+        <view>
+          <image class="t_a" src="{{cc.url}}"></image>
+          <text class="A">{{cc.name}}</text>
+          <text class="A">{{cc.int}}积分</text>
+          <text class="AA">物品介绍：......</text>
+        </view>
+      </label>
+    </modal>
+  </view>
+</template>
+
+<template name="addtell">
+  <view>
+    <modal title="物流信息" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm2" bindcancel="modalCancel">
+      <label>
+        <view class="tellsection">
+          <input class="tellinput" bindinput="savename" placeholder="请输入姓名" value="{{info}}" />
+          <input class="tellinput" bindinput="savenumber" placeholder="请输入手机号" value="{{info}}" />
+          <input class="tellinput" bindinput="saveaddress" placeholder="请输入物流地址" value="{{info}}" />
+        </view>
+      </label>
+    </modal>
+  </view>
+</template>
+
+<template name="score">
+  <view>
+  <modal title="评 分" confirm-text="确认" cancel-text="取消" hidden="{{hidden}}" bindconfirm="Confirm" bindcancel="Cancel">
+    <view class="AA">
+      <view  wx:for='{{score}}' wx:for-item="item" data-index='{{index}}' bindtap="log">
+        <image wx:if="{{item==1}}" src="../../../static/img/s1.png" class="small_picA" ></image>
+        <image wx:if="{{item==2}}" src="../../../static/img/s2.png" class="small_picA" ></image>
+        <image wx:if="{{item==3}}" src="../../../static/img/s3.png" class="small_picA" ></image>
+        <image wx:if="{{item==4}}" src="../../../static/img/s4.png" class="small_picA" ></image>
+      </view>
+    </view>
+  </modal>
+  </view>
+</template>

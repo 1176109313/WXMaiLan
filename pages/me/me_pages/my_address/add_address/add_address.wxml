@@ -1,0 +1,13 @@
+<!--pages/me/me_pages/my_address/add_address/add_adress.wxml-->
+<view class="cont">
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{mArray}}">
+    <view class="picker">
+      当前选择：{{mArray[0][multiIndex[0]]}}，{{mArray[1][multiIndex[1]]}}，{{mArray[2][multiIndex[2]]}}
+    </view>
+  </picker>
+  <view>
+    <view>{{inputValue}}</view>
+    <input class="input_css" maxlength="25" bindinput="bindKeyInput" placeholder="输入详细地址"></input>
+  </view>
+  <button class="new_bt" bindtap="save_address">保存</button>
+</view>

@@ -1,0 +1,88 @@
+<!--pages/home/home.wxml-->
+<view>
+  <view >
+    <image class="adver_p" src="../static/img/fl.png" mode="widthFix" bindtap="redpacket"></image>
+  </view>
+  <view class="gray"> </view>
+  <view class="service">
+    <view class="magintop">常用服务</view>
+
+    <view class=" ho magintop">
+      <button class='new_bt button::after' bindtap="myorder" style=" width:48%">
+          <image class='bt_p' src='../static/img/p1.png'></image>
+          <view>我的订单</view>
+      </button>
+      <button class='new_bt button::after' bindtap="order_now" style=" width:48%">
+          <image class='bt_p' src='../static/img/p2.png'></image>
+          <view>立即下单</view>
+      </button>
+    </view>
+
+    <view class=" ho magintop">
+      <button class='new_bt button::after' bindtap="integral" style=" width:48%">
+          <image class='bt_p' src='../static/img/p3.png'></image>
+          <view>积分好礼</view>
+      </button>
+      <button class='new_bt button::after' bindtap="redpacket" style=" width:48%">
+          <image class='bt_p' src='../static/img/p4.png'></image>
+          <view>红包优惠</view>
+      </button>
+    </view>
+
+  </view>
+  <view class="gray"> </view>
+  <view class="service">
+    <view class="magintop">猜您喜欢</view>
+    <view class="cont magintop">
+      <view class="A" >
+        <image class="small_p" src="../static/img/p_baojie.png" mode="widthFix"></image>
+        <view class="v_line"> </view>
+        <view class="B">
+          <view class="main">
+            <view>日常保洁</view>
+          </view>
+          <view class="v_line"> </view>
+          <view class="main">
+            <view>厨房保洁</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="h_line"></view>
+
+      <view class="A" >
+        <image class="small_p" src="../static/img/p_jfxh.png" mode="widthFix"></image>
+        <view class="v_line"> </view>
+        <view class="B">
+          <view class="main">
+            <view>窗帘清洗</view>
+          </view>
+          <view class="v_line"> </view>
+          <view class="main">
+            <view>沙发清洗</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="h_line"></view>
+
+      <view class="A" >
+        <image class="small_p" src="../static/img/p_dbyh.png" mode="widthFix"></image>
+        <view class="v_line"> </view>
+        <view class="B">
+          <view class="main">
+            <view>地板清洁</view>
+          </view>
+          <view class="v_line"> </view>
+          <view class="main">
+            <view>地毯清洗</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="gray"> </view>
+  <view class="C">巨享优惠</view>
+  <image class="adver_p" src="../static/img/fl2.png" mode="widthFix" ></image>
+</view>

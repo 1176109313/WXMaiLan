@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/home/redpacket/redpacket",
+    "pages/me/me_pages/my_order/my_order",
+    "pages/Test/test",
+    "pages/map/map",
+    "pages/me/me_pages/exchange/exchange",
+    "pages/me/me_pages/my_intergral/my_intergral",
+    "pages/service/service_intro/service_intro",
+    "pages/Login/login",
+    "pages/me/me",
+    "pages/service/service",
+    "pages/me/me_pages/my_address/my_address",
+    "pages/up_order/up_order",
+    "pages/article/article",
+    "pages/me/me_pages/my_redpacket/my_redpacket",
+    "pages/me/me_pages/my_advice/my_advice",
+    "pages/me/me_pages/my_address/add_address/add_address",
+    "pages/up_order/choose_address/choose_address",
+    "pages/me/me_pages/my_order/fill_money/fill_money"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "麦蓝家政",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "pages/images/home.png",
+        "selectedIconPath": "pages/images/homeed.png"
+      },
+      {
+        "text": "服务",
+        "pagePath": "pages/service/service",
+        "iconPath": "pages/images/service.png",
+        "selectedIconPath": "pages/images/serviced.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me",
+        "iconPath": "pages/images/me.png",
+        "selectedIconPath": "pages/images/meed.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

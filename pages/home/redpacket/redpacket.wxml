@@ -1,0 +1,11 @@
+<!--pages/home/redpacket/redpacket.wxml-->
+<view class="adver_p">
+  <image class="adver_p" src="../../static/img/dis1.png" mode="widthFix"></image>
+</view>
+<view class="redpacket">
+  <image class="adver_p" src="../../static/img/R10.png" mode="widthFix"></image>
+</view>
+<view class="redpacket">
+  <image class="adver_p" src="../../static/img/R30.png" mode="widthFix"></image>
+</view>
+<button class='goodbutton' style=""  hover-class="hover">一键领取</button>

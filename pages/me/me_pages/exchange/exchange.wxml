@@ -1,0 +1,20 @@
+<!--pages/me/me_pages/exchange/exchange.wxml-->
+
+<view class="B">
+  <text >当前积分：{{inte}}</text>
+  <view>
+    <import src="../../../template/template" />
+    <template is="point" data="{{...addtell}}" />
+    <template is="addtell" data="{{...addtell}}" />
+  </view>
+  <view class="C">
+    <view  wx:for='{{Exch}}' wx:for-item="item" class="cont" bindtap="exchange" data-text="{{item}}">
+      <view class="D">
+      <image  class="small_pic" src="{{item.url}}"></image>
+        <text class="A" >{{item.name}}</text>
+        <text class="A" >{{item.int}}积分</text>
+      </view>
+    </view>
+  </view>
+</view>
+

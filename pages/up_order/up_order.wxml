@@ -1,0 +1,47 @@
+<!--pages/up_order/up_order.wxml-->
+<view class="A">
+  <view wx:if="{{service.type==2}}">
+    <view class="line"></view>
+    <view class="B">
+      <view class="T">{{service.et_pro}}：</view>
+      <input type="number" bindinput="inputnum"></input>
+      <view class="more_position">{{service.unit}}</view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="B" bindtap="set_address">
+    <view class="lv_me_text">服务地址：</view>
+    <view>{{address}}</view>
+    <view class="more_position">
+      <image src="../static/more.png" class="more_pic"></image>
+    </view>
+  </view>
+  <view class="line"></view>
+  <picker mode="date" value="{{date}}" start="2019-09-01" end="2022-09-01" bindchange="bindDateChange">
+    <view class="B">
+      <view>服务日期：</view>
+      <view class="picker"> {{date}}</view>
+      <view class="more_position">
+        <image src="../static/more.png" class="more_pic"></image>
+      </view>
+    </view>
+  </picker>
+  <view class="line"></view>
+  <picker mode="time" value="{{time}}" start="06:00" end="20:59" bindchange="bindTimeChange">
+    <view class="B">
+      <view>服务时间：</view>
+      <view class="picker">{{time}}</view>
+      <view class="more_position">
+        <image src="../static/more.png" class="more_pic"></image>
+      </view>
+    </view>
+  </picker>
+  <view class="line"></view>
+</view>
+
+<view class="C">
+  <view class="F">总计:{{total}}元</view>
+  <view class="D" bindtap="pay">
+    <text class="E">立即支付</text>
+  </view>
+</view>
