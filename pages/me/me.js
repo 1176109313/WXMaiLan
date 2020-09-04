@@ -81,15 +81,7 @@ Page({
       })
     }
     if (text == "测试") {
-      wx.request({
-        url: '47.106.245.20:8080/work/upload/article/service/a+A/a+A.html', //仅为示例，并非真实的接口地址
-        
-        success(res) {
-          console.log(res.data)
-        }
-      })
-
-      //this.online()
+      
     }
   },
   online: function () {

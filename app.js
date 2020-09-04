@@ -1,6 +1,13 @@
 //app.js
 //小程序启动之后，在 app.js 定义的 App 实例的 onLaunch 回调会被执行
 App({
+  globalData:{
+    service:[[]],
+    code:'',
+    appId: 'wx385b0dcc3b8b9eee',
+    secret: '2b00ffca2416c3f63e40f3e41b29118a',
+    userId:''
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -34,7 +41,4 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null
-  }
 })

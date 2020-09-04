@@ -1,1 +1,12 @@
 <!--pages/me/me_pages/my_redpacket/my_redpacket.wxml-->
+
+<view wx:for='{{address}}' wx:for-index="index" wx:for-item="item" class="cont">
+  <image class="B" mode="widthFix" src="../../../static/img/redpacket.png"></image> 
+  <view  class="C" >
+    <view>
+      <view class="input_tip">红包内容：{{item.address}}</view>
+      <button class='delete_bt' wx:if="{{isshow=='true'}}"
+      style="width:30%;margin-left:66%;margin-bottom:4%" bindtap="delete_address" data-id="{{item._id}}" data-text="{{item.address}}">选择</button>
+    </view>
+  </view>
+</view>

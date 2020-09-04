@@ -1,63 +1,44 @@
-var Tokenizer = require("./Tokenizer.js");
-var DomHandler = require("./DomHandler.js");
-var openImpliesClose = {
-  tr: {
-    tr: true,
-    th: true,
-    td: true
-  },
-  th: {
-    th: true
-  },
-  td: {
-    thead: true,
-    th: true,
-    td: true
-  },
-  body: {
-    head: true,
-    link: true,
-    script: true
-  },
-  li: {
-    li: true
-  },
-  p: {
-    p: true
-  },
-  h1: {
-    p: true
-  },
-  h2: {
-    p: true
-  },
-  h3: {
-    p: true
-  },
-  h4: {
-    p: true
-  },
-  h5: {
-    p: true
-  },
-  h6: {
-    p: true
-  },
-  option: {
-    option: true
-  },
-  optgroup: {
-    optgroup: true
-  }
+//Parser.js
+const Tokenizer = require("./Tokenizer.js");
+const DomHandler = require("./DomHandler.js");
+const trustAttrs = {
+  align: true,
+  alt: true,
+  author: true,
+  autoplay: true,
+  class: true,
+  color: true,
+  colspan: true,
+  controls: true,
+  "data-src": true,
+  dir: true,
+  face: true,
+  height: true,
+  href: true,
+  id: true,
+  ignore: true,
+  loop: true,
+  muted: true,
+  name: true,
+  poster: true,
+  rowspan: true,
+  size: true,
+  span: true,
+  src: true,
+  start: true,
+  style: true,
+  type: true,
+  width: true,
 };
-var voidElements = {
-  __proto__: null,
+const voidTag = {
   area: true,
   base: true,
   basefont: true,
   br: true,
   col: true,
+  circle: true,
   command: true,
+  ellipse: true,
   embed: true,
   frame: true,
   hr: true,
@@ -65,82 +46,53 @@ var voidElements = {
   input: true,
   isindex: true,
   keygen: true,
+  line: true,
   link: true,
   meta: true,
   param: true,
-  source: true,
-  track: true,
-  wbr: true,
   path: true,
-  circle: true,
-  ellipse: true,
-  line: true,
-  rect: true,
-  use: true,
-  stop: true,
+  polygon: true,
   polyline: true,
-  polygon: true
+  rect: true,
+  source: true,
+  stop: true,
+  track: true,
+  use: true,
+  wbr: true
 };
 
-function Parser(cbs) {
-  this._cbs = cbs || {};
+function Parser(cbs, callback) {
+  this._cbs = cbs;
+  this._callback = callback;
   this._tagname = "";
   this._attribname = "";
   this._attribvalue = "";
   this._attribs = null;
   this._stack = [];
-  this.startIndex = 0;
-  this.endIndex = null;
   this._tokenizer = new Tokenizer(this);
-  this._cbs.onparserinit(this);
 }
-
-Parser.prototype._updatePosition = function(initialOffset) {
-  if (this.endIndex === null) {
-    if (this._tokenizer._sectionStart <= initialOffset) {
-      this.startIndex = 0;
-    } else {
-      this.startIndex = this._tokenizer._sectionStart - initialOffset;
-    }
-  } else this.startIndex = this.endIndex + 1;
-  this.endIndex = this._tokenizer.getAbsoluteIndex();
-};
-
 Parser.prototype.ontext = function(data) {
-  this._updatePosition(1);
-  this.endIndex--;
   this._cbs.ontext(data);
 };
-
 Parser.prototype.onopentagname = function(name) {
+  name = name.toLowerCase();
   this._tagname = name;
-  this._attribs = {};
-  if (name in openImpliesClose) {
-    for (
-      var el;
-      (el = this._stack[this._stack.length - 1]) in openImpliesClose[name]; this.onclosetag(el)
-    );
-  }
-  if (!(name in voidElements)) {
-    this._stack.push(name);
-  }
+  this._attribs = {
+    style: ''
+  };
+  if (!voidTag[name]) this._stack.push(name);
 };
-
 Parser.prototype.onopentagend = function() {
-  this._updatePosition(1);
   if (this._attribs) {
     this._cbs.onopentag(this._tagname, this._attribs);
     this._attribs = null;
   }
-  if (this._cbs.onclosetag && this._tagname in voidElements) {
-    this._cbs.onclosetag(this._tagname);
-  }
+  if (voidTag[this._tagname]) this._cbs.onclosetag(this._tagname);
   this._tagname = "";
 };
-
 Parser.prototype.onclosetag = function(name) {
-  this._updatePosition(1);
-  if (this._stack.length && !(name in voidElements)) {
+  name = name.toLowerCase();
+  if (this._stack.length && !voidTag[name]) {
     var pos = this._stack.lastIndexOf(name);
     if (pos !== -1) {
       pos = this._stack.length - pos;
@@ -149,108 +101,56 @@ Parser.prototype.onclosetag = function(name) {
       this.onopentagname(name);
       this._closeCurrentTag();
     }
-  } else if ((name === "br" || name === "p")) {
+  } else if (name === "br" || name === "hr" || name === "p") {
     this.onopentagname(name);
     this._closeCurrentTag();
   }
 };
-
-Parser.prototype.onselfclosingtag = function() {
-  this.onopentagend();
-};
-
 Parser.prototype._closeCurrentTag = function() {
-  var name = this._tagname;
+  let name = this._tagname;
   this.onopentagend();
   if (this._stack[this._stack.length - 1] === name) {
     this._cbs.onclosetag(name);
     this._stack.pop();
   }
 };
-
-Parser.prototype.onattribname = function(name) {
-  this._attribname = name;
-};
-
-Parser.prototype.onattribdata = function(value) {
-  this._attribvalue += value;
-};
-
 Parser.prototype.onattribend = function() {
-  if (this._cbs.onattribute) this._cbs.onattribute(this._attribname, this._attribvalue);
-  if (
-    this._attribs &&
-    !Object.prototype.hasOwnProperty.call(this._attribs, this._attribname)
-  ) {
+  this._attribvalue = this._attribvalue.replace(/&quot;/g, '"');
+  if (this._attribs && trustAttrs[this._attribname]) {
     this._attribs[this._attribname] = this._attribvalue;
   }
   this._attribname = "";
   this._attribvalue = "";
 };
-
-Parser.prototype.onerror = function(err) {
-  console.error(err);
-};
-
 Parser.prototype.onend = function() {
   for (
     var i = this._stack.length; i > 0; this._cbs.onclosetag(this._stack[--i])
   );
-  this._cbs.onend();
+  this._callback({
+    'nodes': this._cbs.nodes,
+    'title': this._cbs.title,
+    'imgList': this._cbs.imgList
+  });
 };
-
-Parser.prototype.reset = function() {
-  this._cbs.onreset();
-  this._tokenizer.reset();
-  this._tagname = "";
-  this._attribname = "";
-  this._attribs = null;
-  this._stack = [];
-  this._cbs.onparserinit(this);
-};
-
-Parser.prototype.parseComplete = function(data) {
-  this.reset();
-  this.end(data);
-};
-
 Parser.prototype.write = function(chunk) {
-  this._tokenizer.write(chunk);
+  this._tokenizer.parse(chunk);
 };
 
-Parser.prototype.end = function(chunk) {
-  this._tokenizer.end(chunk);
-};
-
-Parser.prototype.pause = function() {
-  this._tokenizer.pause();
-};
-
-Parser.prototype.resume = function() {
-  this._tokenizer.resume();
-};
-
-Parser.prototype.parseChunk = Parser.prototype.write;
-Parser.prototype.done = Parser.prototype.end;
-
-function html2nodes(data,options) {
+function html2nodes(data, tagStyle) {
   return new Promise(function(resolve, reject) {
-    data = data.replace(/<!--[\s\S]*?-->/g, ''); //删除注释
-    data = data.replace(/<!\[CDATA\[[\s\S]*?\]\]>/gi, ''); //删除CDATA
-    data = data.replace(/<script[\s\S]*?<\/script>/gi, ''); //删除脚本
-    var style;
-    data = data.replace(/<style.*?>([\s\S]*?)<\/style>/i,function(){
-      style = arguments[1];
-      return '';
-    }); //处理style
-    data = data.replace(/<head[\s\S]*?<\/head>/gi, ''); //删除head
-    var handler = new DomHandler(style,options);
-    new Parser(handler).end(data);
-    resolve({
-      'nodes': handler.dom,
-      'imgList': handler.imgList
-    })
+    try {
+      let style = '';
+      data = data.replace(/<style.*?>([\s\S]*?)<\/style>/gi, function() {
+        style += arguments[1];
+        return '';
+      });
+      let handler = new DomHandler(style, tagStyle);
+      new Parser(handler, (res) => {
+        return resolve(res);
+      }).write(data);
+    } catch (err) {
+      return reject(err);
+    }
   })
 }
-
 module.exports = html2nodes;

@@ -1,5 +1,7 @@
 <!--pages/up_order/up_order.wxml-->
 <view class="A">
+
+
   <view wx:if="{{service.type==2}}">
     <view class="line"></view>
     <view class="B">
@@ -36,6 +38,11 @@
       </view>
     </view>
   </picker>
+  <view class="line"></view>
+    <view class="B">
+      <view>备注：</view>
+      <input class="T" bindinput="inputnote"></input>
+    </view>
   <view class="line"></view>
 </view>
 

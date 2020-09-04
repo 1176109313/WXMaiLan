@@ -23,6 +23,9 @@ Page({
   save_address(){
     wx.cloud.init();
     const db = wx.cloud.database();
+    
+     //这里 把地址发送给服务器，得到区域编号（m,n）
+     
     db.collection('address').add({
       // data 字段表示需新增的 JSON 数据
       data: {

@@ -1,6 +1,11 @@
 {
   "pages": [
+      "pages/Login/login",
+    "pages/service/service",
+
     "pages/home/home",
+   
+    "pages/up_order/up_order",
     "pages/home/redpacket/redpacket",
     "pages/me/me_pages/my_order/my_order",
     "pages/Test/test",
@@ -8,11 +13,8 @@
     "pages/me/me_pages/exchange/exchange",
     "pages/me/me_pages/my_intergral/my_intergral",
     "pages/service/service_intro/service_intro",
-    "pages/Login/login",
     "pages/me/me",
-    "pages/service/service",
     "pages/me/me_pages/my_address/my_address",
-    "pages/up_order/up_order",
     "pages/article/article",
     "pages/me/me_pages/my_redpacket/my_redpacket",
     "pages/me/me_pages/my_advice/my_advice",

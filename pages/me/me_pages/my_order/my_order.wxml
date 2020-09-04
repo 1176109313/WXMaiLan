@@ -1,9 +1,9 @@
 <!--pages/me/me_pages/my_order/my_order.wxml-->
 <view class="A">
   <view>
-  <import src="../../../template/template" />
-  <template is="score" data="{{...addtell}}" />
-</view>
+    <import src="../../../template/template" />
+    <template is="score" data="{{...addtell}}" />
+  </view>
   <view wx:for='{{order}}' wx:for-index="index" wx:for-item="item" bindtap="detail">
     <view class="B">
       <view class="C">
@@ -33,4 +33,3 @@
     <view class="line"></view>
   </view>
 </view>
-

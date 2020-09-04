@@ -19,10 +19,10 @@
 
 <template name="listview_service2">
   <block wx:for="{{service2}}" wx:key="key">
-    <view class="item" bindtap="intent2" data-text="{{item.ID}}">
+    <view class="item" bindtap="intent2" data-text="{{item.id}}">
       <view class="service2">
-        <text class="A">{{item.ID}}</text>
-        <text class="B">{{item.intro}}</text>
+        <text class="A">{{item.name}}</text>
+        <text class="B">{{item.remarks}}</text>
       </view>
     </view>
     <view class="C"></view>
