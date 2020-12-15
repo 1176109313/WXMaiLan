@@ -10,13 +10,12 @@ Page({
     time: '8:00',
     /**具体地址 */
     address:'',
-    /**数量 */
-    total:'',
+    /**数量 */ 
+    total:'', 
     /**备注 */
     remarks:'',
     //服务id
     serviceId:'',
-    userId:'',
     S1: '',
     S2: ''
   },
@@ -86,7 +85,7 @@ Page({
     console.log(getApp().globalData.userId);
     //判断用户是否完善身份信息
     wx.request({
-      url: 'http://127.0.0.1:8080/wxuser/basicOperation/canPay',
+      url: 'http://' + getApp().globalData.ip+':8080/wxuser/basicOperation/canPay',
       method: "POST",
       header: {
         'content-type': 'application/json', // 默认值
@@ -98,7 +97,40 @@ Page({
         console.log(res.data.data);
         if(res.data.data == 'SUCCESS'){
           //身份验证成功，发送订单信息
-
+          wx.request({
+            url: 'http://' + getApp().globalData.ip+':8080/wxuser/ordersOperation/placeOrder',
+            method: "POST",
+            header: { 
+              'content-type': 'application/json', // 默认值
+            },
+            data: {
+              /**用户id */
+              userId: getApp().globalData.userId,
+              /**具体地址 */
+              address: '',
+              serviceTime: '2020-09-01 08:00:00',
+              /**数量 */   
+              total: '1',  
+              tradeType: 'JSAPI', 
+              /**备注 */ 
+              remarks: '',  
+              //服务id
+              serviceId: getApp().globalData.service[this.data.S1][this.data.S2].id,
+            },
+            success: res => { 
+                console.log(res.data); 
+    //然后再发送以下 
+    wx.requestPayment({  
+      timeStamp: res.data.map.timeStamp, 
+      nonceStr: res.data.map.nonceStr, 
+      package: res.data.map.package,
+      signType: res.data.map.signType,
+      paySign: res.data.map.paySign,
+      success(res) { console.log(res.data); }, 
+      fail(res) { console.log(res.errMsg);  }  
+    })
+            }
+          })
         }else if(res.data.data == 'FAIL'){
           //获取身份信息失败，需要完善用户身份信息
 
@@ -108,7 +140,7 @@ Page({
         }
       }
     })
-
+/*
     //然后再发送以下
     wx.requestPayment({
       timeStamp: '1490940662',
@@ -118,7 +150,7 @@ Page({
       paySign: 'MD5',
       success(res) { },
       fail(res) { }
-    })
+    })*/
   },
   /**
    * 生命周期函数--监听页面显示

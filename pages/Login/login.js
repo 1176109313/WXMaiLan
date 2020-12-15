@@ -25,7 +25,7 @@ Page({
                   // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
                    wx.request({
                   //     // 自行补上自己的 APPID 和 SECRET
-                     url: 'http://127.0.0.1:8080/wxuser/basicOperation/login?appid=' + getApp().globalData.appId + '&secret=' + getApp().globalData.secret+'&js_code=' + res.code + '&grant_type=authorization_code',
+                     url: 'http://'+getApp().globalData.ip+':8080/wxuser/basicOperation/login?appid=' + getApp().globalData.appId + '&secret=' + getApp().globalData.secret+'&js_code=' + res.code + '&grant_type=authorization_code',
                        success: res => {
                            // 获取到用户的 openid
                          console.log(res.data);

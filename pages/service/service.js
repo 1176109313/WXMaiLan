@@ -28,7 +28,7 @@ Page({
   getservice:function(){
     //获取一级服务
     wx.request({
-      url: 'http://127.0.0.1:8080/user/serviceOperation/getServiceFirst',
+      url: 'http://' + getApp().globalData.ip+':8080/user/serviceOperation/getServiceFirst',
       method: "POST",
       header: {
         'content-type': 'application/json', // 默认值
@@ -46,7 +46,7 @@ Page({
         var appArray = new Array() 
         //获取二级服务
         wx.request({
-          url: 'http://127.0.0.1:8080/user/serviceOperation/getService',
+          url: 'http://' + getApp().globalData.ip+':8080/user/serviceOperation/getService',
           method:"POST",
           header: {
             'content-type': 'application/json', // 默认值
@@ -90,18 +90,18 @@ Page({
     this.setData({ key: e.currentTarget.dataset.index, });
   },
   intent2:function(e){
-    wx.request({
-      url: 'http://47.106.245.20:8080/work/WX_serviceServlet',
-      data: {
-        type: '1',
-        serviceId:'2'
-      },
-      success: res => {
-        console.log(res.data)
-        app.globalData.code = res.data
-      },
-    })
-    console.log("s")
+    // console.log(e)
+    // wx.request({
+    //   url: 'http://' + getApp().globalData.ip +':8080/html/'+e.currentTarget.dataset.text+'.html',
+    //   data: {
+    //     type: '1',
+    //     serviceId:'2'
+    //   },
+    //   success: res => {
+    //     console.log(res.data)
+    //     app.globalData.code = res.data
+    //   },
+    // })
     var text = e.currentTarget.dataset.text;
     var s1 = this.data.S1
     for (var i = 0; i < this.data.mArray[s1].length; i++) {
@@ -113,9 +113,6 @@ Page({
         break
       }
     }
-    
-
-
     wx.navigateTo({
       url: '../service/service_intro/service_intro?S1='+this.data.S1+'&S2='+this.data.S2,
     })

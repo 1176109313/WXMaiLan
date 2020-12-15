@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: [],
+    address: [], 
   },
   add_address: function () {
     wx.navigateTo({

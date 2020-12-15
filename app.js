@@ -6,7 +6,9 @@ App({
     code:'',
     appId: 'wx385b0dcc3b8b9eee',
     secret: '2b00ffca2416c3f63e40f3e41b29118a',
-    userId:''
+    userId:'',
+    //ip:'47.106.245.20'
+    ip:'127.0.0.1'
   },
   onLaunch: function () {
     // 展示本地存储能力

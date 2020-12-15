@@ -7,22 +7,29 @@ Page({
   data: {
     html: '',
     S1:'',
-    S2:''
+    S2:'',
+    service:{}
   },
   as:function(){
     var content = ''
     var content = app.globalData.code
 
-    var str = "http://47.106.245.20:8080/work/upload/article/service/" + "2";
-    var patt1 = /<img src="(.)\/(\d+?)(.jpg)|(.png)|(.jpeg)|(.gif)"/g
-
-    content = content.replace(patt1, "<img src=\"" + "http://47.106.245.20:8080/work/upload/article/service/" + "2" + "\/$2$3").replace(/'/g, "\\\'");
-
-    console.log(content)
-    this.setData({
-      html:content
+    var str = 'http://' + getApp().globalData.ip +':8080/html/';
+    str = str + this.service.id + ".html";
+    console.log(str);
+    wx.request({
+      url:str, 
+      success: res => {
+        console.log(res)
+        var patt1 = /<img src="(.)\/(\d+?)(.jpg)|(.png)|(.jpeg)|(.gif)"/g
+        debugger;
+        content = content.replace(patt1, res.data);
+        console.log(content)
+        this.setData({
+          html: res.data
+        })
+      },
     })
-
   },
   /**
    * 生命周期函数--监听页面加载
@@ -30,6 +37,7 @@ Page({
   onLoad: function (options) {
     console.log(options.S1),
     console.log(getApp().globalData.service[options.S1][options.S2]),
+    this.service = getApp().globalData.service[options.S1][options.S2];
     this.data.S1 = options.S1;
     this.data.S2 = options.S2;
     this.as()
